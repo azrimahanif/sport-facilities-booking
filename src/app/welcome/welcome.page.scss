@@ -1,0 +1,40 @@
+.welcome-card ion-img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+  .bg-image {
+    background: url('../../assets/STADIUM.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .no-scroll .scroll-content {
+    overflow: hidden;
+  }
+  
+
+  ion-list {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+  }
+  
+  ion-card {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+  }
+  ion-item {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+  }
+  
+  ion-label {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+  }
+  ion-card-header {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+  }
+  ion-content {
+    --background: url('../../assets/stadium.jpg') no-repeat center center fixed cover;
+    --background-size: cover;
+  }

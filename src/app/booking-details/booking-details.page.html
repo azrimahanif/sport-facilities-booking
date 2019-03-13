@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Booking Form
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class= "bg-image no-scroll" full screen="true">
+    <ion-card color="light">
+        <ion-card-header>
+          <ion-card-subtitle>Booking Form</ion-card-subtitle>
+          <ion-card-title>Form</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content >
+          Please make sure to fill in all the required forms with valid details to complete
+          your booking.
+          <ion-list color="light">
+              <ion-item>
+                <ion-label size="small">Name:</ion-label>
+                <ion-input required type="text" placeholder="Name" [(ngModel)]="booking.name"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>NRIC:</ion-label>
+                  <ion-input required  placeholder="NRIC" [(ngModel)]="booking.nric"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Contact No:</ion-label>
+                  <ion-input required  placeholder="Contact" [(ngModel)]="booking.contactNo"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Email:</ion-label>
+                <ion-input required type="email" placeholder="Email" [(ngModel)]="booking.email"></ion-input>                  
+              </ion-item>
+              <ion-list>      
+                  <ion-item>
+                    <ion-label>Session</ion-label>
+                    <ion-select placeholder="Select One">
+                      <ion-select-option value="2">8am-10am</ion-select-option>
+                      <ion-select-option value="1">10am-12am</ion-select-option>
+                      <ion-select-option value="3">12am-2pm</ion-select-option>
+                      <ion-select-option value="4">3pm-5pm</ion-select-option>
+                      <ion-select-option value="5">5pm-7pm</ion-select-option>
+                      <ion-select-option value="6">8pm-10pm</ion-select-option>
+                    </ion-select>
+                <ion-input required type="text" placeholder="" [(ngModel)]="booking.session"></ion-input>
+                  </ion-item>
+              <ion-item>
+                  <ion-label>Remarks:</ion-label>
+                <ion-input required type="text" placeholder="Remarks" [(ngModel)]="booking.remarks"></ion-input>
+              </ion-item>    
+              </ion-list>
+              <ion-button (click)="saveBooking()">Submit</ion-button>
+          </ion-list>  
+
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>

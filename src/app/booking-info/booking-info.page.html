@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+    <ion-title>Booking Info</ion-title>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+        <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-icon name="calendar"></ion-icon>
+    <div padding></div>
+    <ion-label>Choose Date</ion-label>
+    <ion-datetime display-format="DD/MM/YYYY" picker-format="DD MMMM YYYY" min="2019" max="2023-12-31"></ion-datetime>
+  </ion-item>
+  <ion-img src="https://lh3.googleusercontent.com/p/AF1QipOt_iSNaLnr_u6c7fnUIl1gC-LzcM-qQuQ0DPUL=s1600-w400"></ion-img>
+
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title>MSC Stadium</ion-card-title>
+        <ion-card-subtitle>payment Required!!</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Football Field Facilities
+
+        Day - RM 500
+        Night - RM 1200
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button color="primary" horizontal="end" routerLink="/facilities-list" detail >
+      <ion-label>
+          <ion-icon name="arrow-back"></ion-icon>
+      </ion-label>
+    </ion-button>
+    
+    <ion-button  color="success"  routerLink="/booking-details" detail >
+      
+      <ion-label slot="end">
+        proceed
+      </ion-label>
+    </ion-button>
+
+
+
+   
+  
+
+</ion-content>
