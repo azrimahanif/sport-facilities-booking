@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Booking } from './booking.service';
+
 
 
 export interface BookingInfo {
@@ -18,14 +18,14 @@ export interface BookingInfo {
 })
 export class BookingInfoService {
 
-  private bookingCollection: AngularFirestoreCollection<Booking>;
+  private bookingInfoCollection: AngularFirestoreCollection<BookingInfo>;
  
-  private bookings: Observable<Booking[]>;
+  private bookingsinfo: Observable<BookingInfo[]>;
  
   constructor(db: AngularFirestore) {
-    this.bookingCollection = db.collection<Booking>('bookings');
+    this.bookingInfoCollection = db.collection<BookingInfo>('bookingsinfo');
  
-    this.bookings = this.bookingCollection.snapshotChanges().pipe(
+    this.bookingsinfo = this.bookingInfoCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -37,22 +37,22 @@ export class BookingInfoService {
   }
  
   getBookings() {
-    return this.bookings;
+    return this.bookingsinfo;
   }
  
   getBooking(id) {
-    return this.bookingCollection.doc<Booking>(id).valueChanges();
+    return this.bookingInfoCollection.doc<BookingInfo>(id).valueChanges();
   }
  
-  updateBooking(booking: Booking, id: string) {
-    return this.bookingCollection.doc(id).update(booking);
+  updateBooking(bookinginfo: BookingInfo, id: string) {
+    return this.bookingInfoCollection.doc(id).update(bookinginfo);
   }
  
-  addBooking(booking: Booking) {
-    return this.bookingCollection.add(booking);
+  addBooking(bookinginfo: BookingInfo) {
+    return this.bookingInfoCollection.add(bookinginfo);
   }
  
   removeBooking(id) {
-    return this.bookingCollection.doc(id).delete();
+    return this.bookingInfoCollection.doc(id).delete();
   }
 }

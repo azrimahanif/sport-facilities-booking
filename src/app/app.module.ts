@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import {IonicStorageModule} from '@ionic/storage'
+
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule

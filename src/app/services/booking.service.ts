@@ -8,6 +8,8 @@ import { map } from 'rxjs/operators';
 
 export interface Booking {
   id?: string;
+  date: string;
+  bookingtime: number;
 
 }
 

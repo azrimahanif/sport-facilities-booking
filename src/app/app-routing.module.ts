@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// import { AuthGuardService } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'welcome',
+    redirectTo: 'booking-info',
     pathMatch: 'full'
   },
   {
@@ -20,8 +21,16 @@ const routes: Routes = [
   { path: 'booking-info', loadChildren: './booking-info/booking-info.module#BookingInfoPageModule' },
   { path: 'booking-info/:id', loadChildren: './booking-info/booking-info.module#BookingInfoPageModule' },
   { path: 'booking-details', loadChildren: './booking-details/booking-details.module#BookingDetailsPageModule' },
+  { path: 'booking-details/:myid', loadChildren: './booking-details/booking-details.module#BookingDetailsPageModule' },
   { path: 'staff-login', loadChildren: './staff-login/staff-login.module#StaffLoginPageModule' },
-  { path: 'staff-dashboard', loadChildren: './staff-dashboard/staff-dashboard.module#StaffDashboardPageModule' }
+  { path: 'staff-dashboard', loadChildren: './staff-dashboard/staff-dashboard.module#StaffDashboardPageModule' },
+
+  {
+    path: 'staff', 
+    // canActivate: [AuthGuard],
+    loadChildren: './staff-routing.module#MemberRoutingModule'
+  }
+
 ];
 
 @NgModule({
