@@ -1,5 +1,7 @@
 {
   "name": "Sport-facilities-booking",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

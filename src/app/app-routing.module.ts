@@ -28,7 +28,7 @@ const routes: Routes = [
   {
     path: 'staff', 
     // canActivate: [AuthGuard],
-    loadChildren: './staff-routing.module#MemberRoutingModule'
+    loadChildren: './staff-routing.module#StaffRoutingModule'
   }
 
 ];
