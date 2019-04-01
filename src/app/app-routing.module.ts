@@ -25,11 +25,11 @@ const routes: Routes = [
   { path: 'staff-login', loadChildren: './staff-login/staff-login.module#StaffLoginPageModule' },
   { path: 'staff-dashboard', loadChildren: './staff-dashboard/staff-dashboard.module#StaffDashboardPageModule' },
 
-  {
-    path: 'staff', 
-    // canActivate: [AuthGuard],
-    loadChildren: './staff-routing.module#StaffRoutingModule'
-  }
+  // {
+  //   path: 'staff', 
+  //   // canActivate: [AuthGuard],
+  //   loadChildren: './staff-routing.module#StaffRoutingModule'
+  // }
 
 ];
 
