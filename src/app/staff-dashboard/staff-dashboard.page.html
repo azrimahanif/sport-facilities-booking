@@ -1,9 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>staff-dashboard</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content padding>
-
+ 
+<ion-content padding >
+ 
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        Welcome {{userEmail}}!
+      </ion-col>
+    </ion-row>
+   
+  </ion-grid>  
+  
+  
 </ion-content>
+
+<ion-footer (click)="logout()">
+  <ion-toolbar color="primary">
+    <ion-title>Log out</ion-title>
+  </ion-toolbar>
+</ion-footer>
