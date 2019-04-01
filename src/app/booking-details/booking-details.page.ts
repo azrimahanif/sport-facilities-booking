@@ -14,7 +14,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class BookingDetailsPage implements OnInit {
 
-  calendar = '';
+  calendar = this.route.snapshot.paramMap.get('myid');
   bookingId = null;
 
   booking: Booking = {
