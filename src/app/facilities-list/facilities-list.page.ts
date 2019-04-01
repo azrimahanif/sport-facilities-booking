@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BookingInfo, BookingInfoService} from '../services/booking-info.service'
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-facilities-list',
@@ -8,9 +9,10 @@ import {BookingInfo, BookingInfoService} from '../services/booking-info.service'
 })
 export class FacilitiesListPage implements OnInit {
 
+  facility = '';
   bookinginfo: BookingInfo[];
  
-  constructor(private bookinginfoservice: BookingInfoService) { }
+  constructor(private bookinginfoservice: BookingInfoService, private nav:NavController) { }
 
   ngOnInit() {
 
@@ -24,4 +26,12 @@ export class FacilitiesListPage implements OnInit {
   }
   
 
+  pushStadium(){
+    this.facility = 'stadium';
+    this.nav.navigateForward('/booking-info/' + this.facility);
+  }
+  pushHall(){
+    this.facility = 'MSC-hall';
+    this.nav.navigateForward('/booking-info/' + this.facility);
+  }
 }
