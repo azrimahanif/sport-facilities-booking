@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'facilities-list',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'staff-dashboard', loadChildren: './staff-dashboard/staff-dashboard.module#StaffDashboardPageModule' },
 
   // {
-  //   path: 'staff', 
+  //   path: 'staff',
   //   // canActivate: [AuthGuard],
   //   loadChildren: './staff-routing.module#StaffRoutingModule'
   // }

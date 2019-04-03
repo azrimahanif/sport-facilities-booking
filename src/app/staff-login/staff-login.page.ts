@@ -10,9 +10,6 @@ import { AuthenticateService } from '../services/authentication.service';
 })
 export class StaffLoginPage implements OnInit {
 
-  validations_form: FormGroup;
-  errorMessage: string = '';
-
   constructor(
 
     private navCtrl: NavController,
@@ -20,6 +17,20 @@ export class StaffLoginPage implements OnInit {
     private formBuilder: FormBuilder
 
   ) { }
+
+  validations_form: FormGroup;
+  errorMessage: string = '';
+
+  validation_messages = {
+    'email': [
+      { type: 'required', message: 'Email is required.' },
+      { type: 'pattern', message: 'Please enter a valid email.' }
+    ],
+    'password': [
+      { type: 'required', message: 'Password is required.' },
+      { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+    ]
+  };
 
   ngOnInit() {
 
@@ -34,17 +45,6 @@ export class StaffLoginPage implements OnInit {
       ])),
     });
   }
-
-  validation_messages = {
-    'email': [
-      { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Please enter a valid email.' }
-    ],
-    'password': [
-      { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long.' }
-    ]
-  };
  
  
   loginUser(value){

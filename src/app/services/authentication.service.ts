@@ -29,7 +29,7 @@ export class AuthenticateService {
       if(firebase.auth().currentUser){
         firebase.auth().signOut()
         .then(() => {
-          console.log("LOG Out");
+          console.log('LOG Out');
           resolve();
         }).catch((error) => {
           reject();
@@ -43,10 +43,4 @@ export class AuthenticateService {
   }
 }
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthenticationService {
 
-  constructor() { }
-}
