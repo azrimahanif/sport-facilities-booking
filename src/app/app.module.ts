@@ -28,7 +28,7 @@ firebase.initializeApp(environment.firebase);
     IonicStorageModule.forRoot(),
     ReactiveFormsModule,
     AppRoutingModule,
-    // AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule
   ],

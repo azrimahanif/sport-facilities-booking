@@ -17,19 +17,13 @@ import { NavigationExtras } from '@angular/router';
 export class BookingInfoPage implements OnInit {
 
   constructor(private nav: NavController, private route: ActivatedRoute) { 
-    firebase.initializeApp(environment.firebase);
+    // firebase.initializeApp(environment.firebase);
   }
 
   calendar = 0 ;
   facility = '';
   img = '';
-  
-  navigationExtras: NavigationExtras = {
-    queryParams: {
-        calendar: this.calendar,
-        facility: this.route.snapshot.paramMap.get('id')
-    }
-  }
+
 
 
 
@@ -39,15 +33,15 @@ export class BookingInfoPage implements OnInit {
   }
 
   ngOnInit() {
-    this.facility = this.route.snapshot.paramMap.get('id');
+    // this.facility = this.route.snapshot.paramMap.get('id');
 
-    if (this.facility = 'stadium') {
-      this.img = 'https://firebasestorage.googleapis.com/v0/b/test1-77191.appspot.com/o/STADIUM.jpg?alt=media&token=c3575779-cd85-412c-996e-42a92918eda6'
-    }
+    // if (this.facility = 'stadium') {
+    //   this.img = 'https://firebasestorage.googleapis.com/v0/b/test1-77191.appspot.com/o/STADIUM.jpg?alt=media&token=c3575779-cd85-412c-996e-42a92918eda6'
+    // }
 
-    if (this.facility = 'MSC-hall') {
-      this.img = 'https://firebasestorage.googleapis.com/v0/b/test1-77191.appspot.com/o/multipurpose%20hall%20msc.jpg?alt=media&token=cca4c401-7832-4ac4-b270-3e4af28d9a5a'
-    }
+    // if (this.facility = 'MSC-hall') {
+    //   this.img = 'https://firebasestorage.googleapis.com/v0/b/test1-77191.appspot.com/o/multipurpose%20hall%20msc.jpg?alt=media&token=cca4c401-7832-4ac4-b270-3e4af28d9a5a'
+    // }
   }
 
 }

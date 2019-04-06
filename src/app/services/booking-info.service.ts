@@ -5,27 +5,29 @@ import { map } from 'rxjs/operators';
 
 
 
-export interface BookingInfo {
+export interface Facilities {
   id?: string;
   name: string;
-  description: string;
-  timeAvailable: string;
-  price: string;
+  details: string;
+  subdetails: string;
+  img: string;
+  timeAvailable: number;
+  price: number;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookingInfoService {
+export class FacilitiesService {
 
-  private bookingInfoCollection: AngularFirestoreCollection<BookingInfo>;
+  private facilitiesCollection: AngularFirestoreCollection<Facilities>;
  
-  private bookingsinfo: Observable<BookingInfo[]>;
+  private facilities: Observable<Facilities[]>;
  
   constructor(db: AngularFirestore) {
-    this.bookingInfoCollection = db.collection<BookingInfo>('bookingsinfo');
+    this.facilitiesCollection = db.collection<Facilities>('facilities');
  
-    this.bookingsinfo = this.bookingInfoCollection.snapshotChanges().pipe(
+    this.facilities = this.facilitiesCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -36,23 +38,23 @@ export class BookingInfoService {
     );
   }
  
-  getBookings() {
-    return this.bookingsinfo;
+  getFacility() {
+    return this.facilities;
   }
  
-  getBooking(id) {
-    return this.bookingInfoCollection.doc<BookingInfo>(id).valueChanges();
+  getFacilities(id) {
+    return this.facilitiesCollection.doc<Facilities>(id).valueChanges();
   }
  
-  updateBooking(bookinginfo: BookingInfo, id: string) {
-    return this.bookingInfoCollection.doc(id).update(bookinginfo);
+  updateFacility(facilities: Facilities, id: string) {
+    return this.facilitiesCollection.doc(id).update(facilities);
   }
  
-  addBooking(bookinginfo: BookingInfo) {
-    return this.bookingInfoCollection.add(bookinginfo);
+  addFacility(facilities: Facilities) {
+    return this.facilitiesCollection.add(facilities);
   }
  
-  removeBooking(id) {
-    return this.bookingInfoCollection.doc(id).delete();
+  removeFacility(id) {
+    return this.facilitiesCollection.doc(id).delete();
   }
 }

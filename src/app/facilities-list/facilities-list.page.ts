@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BookingInfo, BookingInfoService} from '../services/booking-info.service';
+import {Facilities, FacilitiesService} from '../services/booking-info.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -9,28 +9,28 @@ import { NavController } from '@ionic/angular';
 })
 export class FacilitiesListPage implements OnInit {
 
-  facility = '';
-  bookinginfo: BookingInfo[];
+  
+  facilities: Facilities[];
 
-  constructor(private bookinginfoservice: BookingInfoService, private nav:NavController) { }
+  constructor(private facilitiesservice: FacilitiesService, private nav:NavController) { }
 
   ngOnInit() {
 
-    // this.bookinginfoservice.getBookings().subscribe(res => {
-    //   this.bookinginfo = res;
-    // });
+    this.facilitiesservice.getFacility().subscribe(res => {
+      this.facilities = res;
+    });
   }
 
-  // remove(item: { id: any; }) {
-  //   this.bookinginfoservice.removeBooking(item.id);
+  remove(item: { id: any; }) {
+    this.facilitiesservice.removeFacility(item.id);
+  }
+
+  // pushStadium() {
+  //   this.facility = 'stadium';
+  //   this.nav.navigateForward('/booking-info/' + this.facility);
   // }
-
-  pushStadium() {
-    this.facility = 'stadium';
-    this.nav.navigateForward('/booking-info/' + this.facility);
-  }
-  pushHall() {
-    this.facility = 'MSC-hall';
-    this.nav.navigateForward('/booking-info/' + this.facility);
-  }
+  // pushHall() {
+  //   this.facility = 'MSC-hall';
+  //   this.nav.navigateForward('/booking-info/' + this.facility);
+  // }
 }

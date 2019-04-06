@@ -10,12 +10,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-card (click)="pushStadium()">
-    <ion-img src="https://firebasestorage.googleapis.com/v0/b/test1-77191.appspot.com/o/football%20field.jpg?alt=media&token=b1492c76-c0af-4661-ac70-e52effd6fd49" >
-    </ion-img>
-    <ion-label>
-      MSC Stadium
-    </ion-label>
+  <ion-card >
+      <ng-container *ngIf="!facilities || facilities.length == 0">
+          <div *ngFor="let n of [0,1,2]" padding>
+            <ion-skeleton-text></ion-skeleton-text>
+            <p>
+              <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+            </p>
+          </div>
+        </ng-container>
+
+
   </ion-card>
 
   <ion-card (click)="pushHall()">
