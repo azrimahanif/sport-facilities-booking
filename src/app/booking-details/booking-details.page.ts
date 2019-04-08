@@ -18,7 +18,7 @@ export class BookingDetailsPage implements OnInit {
   bookingId = null;
 
   booking: Booking = {
-    date: this.calendar,
+    date: this.route.snapshot.paramMap.get('myid'),
     bookingtime: new Date().getTime()
 
   };

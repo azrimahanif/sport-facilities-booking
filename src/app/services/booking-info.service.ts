@@ -7,12 +7,10 @@ import { map } from 'rxjs/operators';
 
 export interface Facilities {
   id?: string;
-  name: string;
+  Name: string;
   details: string;
-  subdetails: string;
   img: string;
-  timeAvailable: number;
-  price: number;
+
 }
 
 @Injectable({

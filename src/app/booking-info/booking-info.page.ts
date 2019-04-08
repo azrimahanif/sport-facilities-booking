@@ -4,6 +4,8 @@ import * as firebase from 'firebase';
 import { environment } from 'src/environments/environment';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationExtras } from '@angular/router';
+import {Facilities, FacilitiesService} from '../services/booking-info.service';
+import {LoadingController} from '@ionic/angular';
 
 @Component({
   selector: 'app-booking-info',
@@ -16,13 +18,19 @@ import { NavigationExtras } from '@angular/router';
 
 export class BookingInfoPage implements OnInit {
 
-  constructor(private nav: NavController, private route: ActivatedRoute) { 
+
+  facilities: Facilities = {
+    Name: ' ',
+    details: '',  
+    img: ''
+  }
+
+  constructor(private nav: NavController, private route: ActivatedRoute, private facilitiesservice: FacilitiesService, private loadingController: LoadingController) { 
     // firebase.initializeApp(environment.firebase);
   }
 
   calendar = 0 ;
-  facility = '';
-  img = '';
+  facilityId = null;
 
 
 
@@ -33,15 +41,24 @@ export class BookingInfoPage implements OnInit {
   }
 
   ngOnInit() {
-    // this.facility = this.route.snapshot.paramMap.get('id');
-
-    // if (this.facility = 'stadium') {
-    //   this.img = 'https://firebasestorage.googleapis.com/v0/b/test1-77191.appspot.com/o/STADIUM.jpg?alt=media&token=c3575779-cd85-412c-996e-42a92918eda6'
-    // }
-
-    // if (this.facility = 'MSC-hall') {
-    //   this.img = 'https://firebasestorage.googleapis.com/v0/b/test1-77191.appspot.com/o/multipurpose%20hall%20msc.jpg?alt=media&token=cca4c401-7832-4ac4-b270-3e4af28d9a5a'
-    // }
+    this.facilityId = this.route.snapshot.params['id'];
+    if (this.facilityId){
+      this.loadFacility();
+    }
   }
 
+
+  async loadFacility (){
+    const loading = await this.loadingController.create({
+      message: 'Loading Facility..'
+    });
+    await loading.present();
+
+    this.facilitiesservice.getFacilities(this.facilityId).subscribe(res =>{
+      loading.dismiss();
+      this.facilities = res;
+    });
+  }
+
+  
 }
