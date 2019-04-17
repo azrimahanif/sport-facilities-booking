@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NavigationExtras } from '@angular/router';
 import {Facilities, FacilitiesService} from '../services/booking-info.service';
 import {LoadingController} from '@ionic/angular';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-booking-info',
@@ -19,29 +20,24 @@ import {LoadingController} from '@ionic/angular';
 export class BookingInfoPage implements OnInit {
 
 
-  facilities: Facilities = {
-    Name: ' ',
-    details: '',  
-    img: ''
-  }
+  facilities: Facilities ;
 
-  constructor(private nav: NavController, private route: ActivatedRoute, private facilitiesservice: FacilitiesService, private loadingController: LoadingController) { 
-    // firebase.initializeApp(environment.firebase);
-  }
+  constructor(private nav: NavController, private route: ActivatedRoute, private facilitiesservice: FacilitiesService, private loadingController: LoadingController, private db: AngularFirestore) { }
 
-  calendar = 0 ;
-  facilityId = null;
+  date = 0 ;
+  facilityId = 'iium';
 
 
 
 
   pushPage() {
-
-    this.nav.navigateForward('/booking-details/' + this.calendar);
+    this.nav.navigateForward('/booking-details/' + this.date);
   }
 
   ngOnInit() {
     this.facilityId = this.route.snapshot.params['id'];
+
+
     if (this.facilityId){
       this.loadFacility();
     }
@@ -55,10 +51,10 @@ export class BookingInfoPage implements OnInit {
     await loading.present();
 
     this.facilitiesservice.getFacilities(this.facilityId).subscribe(res =>{
-      loading.dismiss();
       this.facilities = res;
+      loading.dismiss();
     });
   }
 
-  
+
 }

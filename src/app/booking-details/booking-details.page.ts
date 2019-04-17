@@ -55,7 +55,7 @@ export class BookingDetailsPage implements OnInit {
       message: 'Saving Booking..'
     });
     await loading.present();
-    await this.presentAlert();
+    
  
     if (this.bookingId) {
       this.bookingService.updateBooking(this.booking, this.bookingId).then(() => {
@@ -68,6 +68,7 @@ export class BookingDetailsPage implements OnInit {
         // this.nav.navigateBack('facilities-list');
       });
     }
+    await this.presentAlert();
     
   }
 

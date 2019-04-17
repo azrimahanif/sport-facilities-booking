@@ -36,7 +36,7 @@ export class BookingService {
     );
   }
  
-  getBookings() {
+  getBookings(): Observable<Booking[]> {
     return this.bookings;
   }
  

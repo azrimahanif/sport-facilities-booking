@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ModalController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
-// import { BookingInfo, BookingInfoService } from '../services/booking-info.service';
-
+import { Booking, BookingService } from './../services/booking.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-staff-dashboard',
   templateUrl: './staff-dashboard.page.html',
@@ -10,17 +10,24 @@ import { AuthenticateService } from '../services/authentication.service';
 })
 export class StaffDashboardPage implements OnInit {
   userEmail: string;
+  private bookings: Observable<Booking[]>; // edited line
 
   constructor(
     private navCtrl: NavController,
-    private authService: AuthenticateService
-    // private getInfo : BookingInfoService
+    public bookingInfoService: BookingService,
+    private authService: AuthenticateService,
+
   ) { }
 
   ngOnInit() {
     if(this.authService.userDetails()){
       this.userEmail = this.authService.userDetails().email;
-    }else{
+      // this.bookingInfoService.getBookings().subscribe(res => {
+      //   this.bookings = res});
+      // this.loadBooking();
+      this.bookings = this.bookingInfoService.getBookings(); // edited line
+    }
+    else{
       this.navCtrl.navigateBack('');
     }
   }
@@ -39,5 +46,12 @@ export class StaffDashboardPage implements OnInit {
       console.log(error);
     })
   }
+
+
+  // loadBooking ()
+  // {
+  //       this.bookingInfoService.getBookings().subscribe(res => {
+  //       this.info = res})
+  // }
 
 }

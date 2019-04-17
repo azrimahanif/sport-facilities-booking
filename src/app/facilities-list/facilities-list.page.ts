@@ -25,12 +25,5 @@ export class FacilitiesListPage implements OnInit {
     this.facilitiesservice.removeFacility(item.id);
   }
 
-  // pushStadium() {
-  //   this.facility = 'stadium';
-  //   this.nav.navigateForward('/booking-info/' + this.facility);
-  // }
-  // pushHall() {
-  //   this.facility = 'MSC-hall';
-  //   this.nav.navigateForward('/booking-info/' + this.facility);
-  // }
+
 }

@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-toolbar color="primary">
-    <ion-title>Booking Info</ion-title>
+    <ion-title>{{facilityId}}</ion-title>
     <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       
@@ -11,24 +11,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
+  <ion-item >
     <ion-icon name="calendar"></ion-icon>
     <div padding></div>
-    <ion-datetime placeholder="choose date" display-format="DD/MM/YYYY" picker-format="DD MMMM YYYY" min="2019" max="2023-12-31" [(ngModel)]="calendar"></ion-datetime>
+    <ion-datetime placeholder="choose date" display-format="DD/MM/YYYY" picker-format="DD MMMM YYYY" min="2019" max="2023-12-31" [(ngModel)]="date"></ion-datetime>
   </ion-item>
-  <ion-img src={{img}}></ion-img>
+  <ion-img src={{facilities.img}}></ion-img>
 
-  <ion-card>
+  <ion-card >
       <ion-card-header>
-        <ion-card-title>MSC Stadium</ion-card-title>
-        <ion-card-subtitle>payment Required!!</ion-card-subtitle>
+        <!-- <ion-img src={{facilities.img}}></ion-img> -->
+        <ion-card-title>{{facilities.Name}}</ion-card-title>
+        <ion-card-subtitle>{{facilities.details}}</ion-card-subtitle>
       </ion-card-header>
     
       <ion-card-content>
-        Football Field Facilities
-
-        Day - RM 500
-        Night - RM 1200
+        
       </ion-card-content>
     </ion-card>
 
