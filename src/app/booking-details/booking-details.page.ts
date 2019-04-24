@@ -16,10 +16,12 @@ export class BookingDetailsPage implements OnInit {
 
   calendar = '';
   bookingId = null;
+  facilityId = null;
 
   booking: Booking = {
-    date: this.route.snapshot.paramMap.get('myid'),
-    bookingtime: new Date().getTime()
+    date: this.route.snapshot.paramMap.get('date'),
+    bookingtime: new Date().getTime(),
+    facilityId: this.route.snapshot.paramMap.get('myid')
 
   };
 
@@ -30,7 +32,9 @@ export class BookingDetailsPage implements OnInit {
   ngOnInit() {
 
 
-    this.calendar = this.route.snapshot.paramMap.get('myid');
+    
+    this.facilityId = this.route.snapshot.paramMap.get('myid');
+    this.calendar = this.route.snapshot.params['date'];
     this.bookingId = this.route.snapshot.params['id'];
     if (this.bookingId)  {
       this.loadBooking();

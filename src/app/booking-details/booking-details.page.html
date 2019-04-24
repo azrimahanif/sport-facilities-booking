@@ -13,6 +13,7 @@
     <ion-card color="light">
         <ion-card-header>
           <ion-card-subtitle>Booking Form</ion-card-subtitle>
+          <ion-card-subtitle>{{facilityId}}</ion-card-subtitle>
           <ion-card-subtitle>{{calendar}}</ion-card-subtitle>
           <ion-card-title>Form</ion-card-title>
         </ion-card-header>
@@ -52,12 +53,12 @@
                 
                   </ion-item>
               <ion-item>
-                  <ion-label>Remarks:</ion-label>
+                  <ion-label>Remarks(Team):</ion-label>
                 <ion-input required type="text" placeholder="Remarks" [(ngModel)]="booking.remarks"></ion-input>
               </ion-item> 
                  
               </ion-list>
-              <ion-button color="primary" horizontal="end" routerLink="/booking-info" detail >
+              <ion-button color="primary" horizontal="end" [routerLink]="['/booking-info' , facilityId]" routerDirection="backward" detail >
                 <ion-label>
                     <ion-icon name="arrow-back"></ion-icon>
                 </ion-label>

@@ -27,11 +27,17 @@ export class BookingInfoPage implements OnInit {
   date = 0 ;
   facilityId = 'iium';
 
+//  postdata = {
+//    "date": this.date,
+//    "facilityId": this.facilityId
+//   }
+
 
 
 
   pushPage() {
-    this.nav.navigateForward('/booking-details/' + this.date);
+    this.nav.navigateForward(['/booking-details/' , {myid: this.facilityId, date: this.date} ]);
+    // this.nav.navigateForward('/booking-details/' + this.date);
   }
 
   ngOnInit() {

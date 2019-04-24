@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'booking-info', loadChildren: './booking-info/booking-info.module#BookingInfoPageModule' },
   { path: 'booking-info/:id', loadChildren: './booking-info/booking-info.module#BookingInfoPageModule' },
   { path: 'booking-details', loadChildren: './booking-details/booking-details.module#BookingDetailsPageModule' },
-  { path: 'booking-details/:myid', loadChildren: './booking-details/booking-details.module#BookingDetailsPageModule' },
+  { path: 'booking-details/:myid:date', loadChildren: './booking-details/booking-details.module#BookingDetailsPageModule' },
   { path: 'staff-login', loadChildren: './staff-login/staff-login.module#StaffLoginPageModule' },
   { path: 'staff-dashboard', loadChildren: './staff-dashboard/staff-dashboard.module#StaffDashboardPageModule' },
 

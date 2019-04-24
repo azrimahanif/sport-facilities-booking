@@ -10,6 +10,7 @@ export interface Booking {
   id?: string;
   date: string;
   bookingtime: number;
+  facilityId: string;
 
 }
 
