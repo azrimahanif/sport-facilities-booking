@@ -11,6 +11,7 @@ export interface Booking {
   date: string;
   bookingtime: number;
   facilityId: string;
+  status: string;
 
 }
 

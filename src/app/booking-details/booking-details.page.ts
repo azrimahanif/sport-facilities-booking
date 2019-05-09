@@ -21,7 +21,8 @@ export class BookingDetailsPage implements OnInit {
   booking: Booking = {
     date: this.route.snapshot.paramMap.get('date'),
     bookingtime: new Date().getTime(),
-    facilityId: this.route.snapshot.paramMap.get('myid')
+    facilityId: this.route.snapshot.paramMap.get('myid'),
+    status: 'pending'
 
   };
 

@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'facilities-list',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
